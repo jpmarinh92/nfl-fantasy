@@ -1,0 +1,17 @@
+.active a {
+  color:red;
+  text-decoration: none;
+}
+
+.player {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid gray;
+  margin: 5px 15px;
+}
+
+.player_photo {
+  align-self: center;
+  margin-left: 5px;
+  margin-right: 5px
+}
