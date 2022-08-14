@@ -25,25 +25,31 @@ class PlayersController extends Controller
     }
 
     public function create() {
+      $sql="SELECT name FROM teams";
+      $teams = DB::select($sql);
 
-      return view('players/create');
+      return view('players/create', compact('teams'));
     }
 
     public function store() {
       
+      return request();
       $img = "https://nfl-jp.s3.amazonaws.com/".request()->file('image')->store('players','s3');
       $fields = request()-> validate([
         'first_name' => 'required',
         'last_name' => 'required',
         'image' => 'required',
+        'number'=> 'required',
         'position' => 'required',
+        'age' => 'required',
+        'college' => 'required',
         'salary' => 'required',
         'team_name'=> 'required'
       ]);
       $fields['image'] = $img;
 
-      $sql = 'INSERT INTO players (first_name, last_name, image, position, salary, team_name ) VALUES(?, ?, ?, ?, ?, ?)';
-      $body = [$fields['first_name'], $fields['last_name'], $fields['image'], $fields['position'], $fields['salary'], $fields['team_name']];
+      $sql = 'INSERT INTO players (first_name, last_name, image, number, position, age, college, salary, team_name ) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      $body = [$fields['first_name'], $fields['last_name'], $fields['image'], $fields['number'], $fields['position'], $fields['age'], $fields['college'], $fields['salary'], $fields['team_name']];
 
       $newPlayer = DB::insert($sql, $body);
       
@@ -53,10 +59,12 @@ class PlayersController extends Controller
     public function edit($id) {
 
       $sql = 'SELECT * FROM players WHERE id = '.$id;
+      $sql2 = 'SELECT name FROM teams';
       
       $player = DB::select($sql)[0];
-
-      return view('/players/edit', compact('player'));
+      $teams = DB::select($sql2);
+    
+      return view('/players/edit', compact('player', 'teams'));
     }
 
     public function update($id) {

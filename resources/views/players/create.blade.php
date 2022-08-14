@@ -38,6 +38,20 @@
     </div>
 
     <div class="form-group">
+      <label for="number">Number</label>
+      <input class="form-control bg-light shadow-sm @error('number') is-invalid @enderror)" 
+        id="number"
+        name="number" 
+        placeholder="Number..." 
+        value="{{ old('number') }}">
+        @error('number')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
+    </div>
+
+    <div class="form-group">
       <label for="position">Position</label>
       <input class="form-control bg-light shadow-sm @error('position') is-invalid @enderror)" 
         id="position"
@@ -45,6 +59,34 @@
         placeholder="Position..." 
         value="{{ old('position') }}">
         @error('position')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input class="form-control bg-light shadow-sm @error('age') is-invalid @enderror)" 
+        id="age"
+        name="age" 
+        placeholder="Age..." 
+        value="{{ old('age') }}">
+        @error('age')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
+    </div>
+
+    <div class="form-group">
+      <label for="college">College</label>
+      <input class="form-control bg-light shadow-sm @error('college') is-invalid @enderror)" 
+        id="college"
+        name="college" 
+        placeholder="College..." 
+        value="{{ old('college') }}">
+        @error('college')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
@@ -65,7 +107,7 @@
         @enderror
     </div>
 
-    <div class="form-group">
+    {{-- <div class="form-group">
       <label for="team_name">Team Name</label>
       <input class="form-control bg-light shadow-sm @error('team_name') is-invalid @enderror)" 
         id="team_name"
@@ -77,14 +119,26 @@
             <strong>{{ $message }}</strong>
           </span>
         @enderror
+    </div> --}}
+   
+    <div class ="form-group">
+      <label for="team_name">Team Name:</label>
+      <select name="team_name" id="team_name" class="form-control bg-light shadow-sm @error('team_name') is-invalid @enderror)">
+        <option value="" disabled selected>Select a team</option>
+        @forelse ($teams as $team)
+        <option value="{{$team->name}}">{{$team->name}}</option>
+        @empty
+          <option value="No Team">No Team</option>
+        @endforelse
+      </select>   
     </div>
 
-    <div class="custom-file">
-      <input name="image" type="file" class="custom-file-input" id="customFile">
-      <label class="custom-file-label" for="customFile">Choose file</label>
+    <div class="custom-file form-group form-control-lg">
+      <input name="image" type="file" class="custom-file-input form-control-lg" id="customFile">
+      <label class="custom-file-label" for="customFile">Add Photo</label>
     </div>
+
 
     <button class="btn btn-primary btn-lg col-12 mt-3">Add Player</button>
   </form>
-</div>
 @endsection

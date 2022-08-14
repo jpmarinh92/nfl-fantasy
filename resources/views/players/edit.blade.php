@@ -38,13 +38,13 @@
     </div>
 
     <div class="form-group">
-      <label for="salary">Salary</label>
-      <input class="form-control bg-light shadow-sm @error('salary') is-invalid @enderror)" 
-        id="salary"
-        name="salary" 
-        placeholder="Salary..." 
-        value="{{ $player->salary }}">
-        @error('salary')
+      <label for="number">Number</label>
+      <input class="form-control bg-light shadow-sm @error('number') is-invalid @enderror)" 
+        id="number"
+        name="number" 
+        placeholder="Number..." 
+        value="{{ $player->number }}">
+        @error('number')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
@@ -66,17 +66,56 @@
     </div>
 
     <div class="form-group">
-      <label for="team_name">Team</label>
-      <input class="form-control bg-light shadow-sm @error('team_name') is-invalid @enderror)" 
-        id="team_name"
-        name="team_name" 
-        placeholder="Team..." 
-        value="{{ $player->team_name }}">
-        @error('team_name')
+      <label for="age">Age</label>
+      <input class="form-control bg-light shadow-sm @error('age') is-invalid @enderror)" 
+        id="age"
+        name="age" 
+        placeholder="Age..." 
+        value="{{ $player->age }}">
+        @error('age')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
         @enderror
+    </div>
+
+    <div class="form-group">
+      <label for="college">College</label>
+      <input class="form-control bg-light shadow-sm @error('college') is-invalid @enderror)" 
+        id="college"
+        name="college" 
+        placeholder="College..." 
+        value="{{ $player->college }}">
+        @error('college')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
+    </div>
+
+    <div class="form-group">
+      <label for="salary">Salary</label>
+      <input class="form-control bg-light shadow-sm @error('salary') is-invalid @enderror)" 
+        id="salary"
+        name="salary" 
+        placeholder="Salary..." 
+        value="{{ $player->salary }}">
+        @error('salary')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
+    </div>
+    
+    <div class ="form-group">
+      <label for="team_name">Team Name:</label>
+      <select name="team_name" id="team_name" class="form-control bg-light shadow-sm @error('team_name') is-invalid @enderror)">
+        @forelse ($teams as $team)
+          <option value="{{$team->name}}" selected="{{$team->name === $player->team_name}} ? selected : not-selected">{{$team->name}}</option>
+        @empty
+          <option value="No Team">No Team</option> 
+        @endforelse 
+      </select>   
     </div>
 
     <button class="btn btn-primary btn-lg col-12 mt-3">Edit Player</button>

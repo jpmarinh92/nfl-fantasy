@@ -9,14 +9,14 @@
       <div class="player_photo">
         <img class="rounded"src="{{$player->image}}" alt="{{ $player->first_name }} {{ $player->last_name }}" width="490" height="350">
       </div>
-      <div class="player_info bg-black text-white rounded pl-2 bg-opacity-75" style="min-width: 490px; padding-left: 25px; max-height: 350px;">
+      <div class="player_info bg-black text-white rounded pl-2 bg-opacity-75" style="min-width: 490px; padding-left: 25px; max-height: 350px; font-family: Trattatello, fantasy">
         <h1>{{$player->first_name}} {{$player->last_name}}</h1>
         <p class="fs-3">{{ $player->position }}</p>
-        <p class="fs-3">#{{ $player->number }}</p>
-        <p class="fs-4">Age: {{ $player->age }}</p>
-        <p class="fs-4">College: {{ $player->college }}</p>
-        <p class="fs-4">Salary: {{ $player->salary }}</p>
-        <P  class="fs-4">Team: {{$player->team_name}}</P>
+        <p class="fs-3"> <span class="fs-4">#</span>{{ $player->number }}</p>
+        <p class="fs-5"><span class="fs-4">Age: </span>{{ $player->age }}</p>
+        <p class="fs-5"><span class="fs-4">College: </span>{{ $player->college }}</p>
+        <p class="fs-5"><span class="fs-4">Salary: </span>{{ $player->salary }}</p>
+        <P  class="fs-5"><span class="fs-4">Team: </span>{{$player->team_name}}</P>
       </div>
     </section>
 

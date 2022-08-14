@@ -56,7 +56,7 @@
       <label class="custom-file-label" for="customFile">Choose file</label>
     </div>
 
-    <button class="btn btn-primary btn-lg col-12 mt-3">Add Team</button>
+    <button class="btn btn-primary btn-lg col-12 mt-3">Add Photo</button>
   </form>
 </div>
 @endsection
