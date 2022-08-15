@@ -33,7 +33,6 @@ class PlayersController extends Controller
 
     public function store() {
       
-      return request();
       $img = "https://nfl-jp.s3.amazonaws.com/".request()->file('image')->store('players','s3');
       $fields = request()-> validate([
         'first_name' => 'required',

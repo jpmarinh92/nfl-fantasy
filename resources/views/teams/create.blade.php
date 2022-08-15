@@ -51,9 +51,17 @@
         @enderror
     </div>
 
-    <div class="custom-file">
+    {{-- <div class="custom-file">
       <input name="image" type="file" class="custom-file-input" id="customFile">
       <label class="custom-file-label" for="customFile">Choose file</label>
+    </div> --}}
+
+    <label>Player Photo</label>
+    <div class ="form-group">
+      <div class="input-group mb-3 custom-file">
+        <label class="input-group-text" for="customFile">Upload</label>
+        <input type="file" class="form-control custom-file-input" id="customFile" name="image">
+      </div>
     </div>
 
     <button class="btn btn-primary btn-lg col-12 mt-3">Add Photo</button>

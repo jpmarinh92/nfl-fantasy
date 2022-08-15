@@ -122,7 +122,7 @@
     </div> --}}
    
     <div class ="form-group">
-      <label for="team_name">Team Name:</label>
+      <label for="team_name">Team Name</label>
       <select name="team_name" id="team_name" class="form-control bg-light shadow-sm @error('team_name') is-invalid @enderror)">
         <option value="" disabled selected>Select a team</option>
         @forelse ($teams as $team)
@@ -133,11 +133,18 @@
       </select>   
     </div>
 
-    <div class="custom-file form-group form-control-lg">
+    {{-- <div class="custom-file form-group form-control-lg">
       <input name="image" type="file" class="custom-file-input form-control-lg" id="customFile">
       <label class="custom-file-label" for="customFile">Add Photo</label>
-    </div>
+    </div> --}}
 
+    <label>Team Logo</label>
+    <div class ="form-group">
+      <div class="input-group mb-3 custom-file">
+        <label class="input-group-text" for="customFile">Upload</label>
+        <input type="file" class="form-control custom-file-input" id="customFile" name="image">
+      </div>
+    </div>
 
     <button class="btn btn-primary btn-lg col-12 mt-3">Add Player</button>
   </form>
